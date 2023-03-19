@@ -1,0 +1,6 @@
+Cara Menjalankan Program
+
+1. Buat virtual env 
+2. install requirements.txt -> pip install -r requirements.txt
+3. python3 main.py
+4. Hasil scraping tersimpan di file output.csv
