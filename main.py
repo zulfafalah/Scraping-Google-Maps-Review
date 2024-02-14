@@ -71,5 +71,5 @@ def main(url_maps):
 
 
 if __name__ == '__main__':
-    url_map = "https://www.google.com/maps/place/Konco+Space/@-7.5659187,110.7707073,17z/data=!4m7!3m6!1s0x2e7a157ce4db6f27:0x6d4183dd13e72ada!8m2!3d-7.565924!4d110.772896!9m1!1b1"
+    url_map = "https://www.google.com/maps/place/Pandawa+Beach/@-8.8448081,115.1865255,16z/data=!4m8!3m7!1s0x2dd25b7cd8ba1f31:0x41b8785dd055b2a4!8m2!3d-8.8452802!4d115.1870679!9m1!1b1!16s%2Fg%2F1ygbcghrt?entry=ttu"
     main(url_map)
