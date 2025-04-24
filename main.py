@@ -3,7 +3,10 @@ import csv
 import re         
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager as CM
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+
 
 def main(url_maps): 
     options = webdriver.ChromeOptions()
@@ -14,8 +17,8 @@ def main(url_maps):
         "userAgent": "Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/90.0.1025.166 Mobile Safari/535.19"}
     options.add_experimental_option("mobileEmulation", mobile_emulation)
 
-    driver = webdriver.Chrome(executable_path=CM().install(), options=options)
-    driver.set_window_size(600, 700)    
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service, options=options)
     
     alamatURL = url_maps
     driver.get(alamatURL) 
@@ -26,7 +29,7 @@ def main(url_maps):
         while True:
             print(f"run infinite scrolling...{count}")
             count += 1
-            last_review = driver.find_elements_by_css_selector('div[jsinstance="0"]')
+            last_review = driver.find_elements(By.CSS_SELECTOR, 'div[jsinstance="0"]')
             driver.execute_script('arguments[0].scrollIntoView(true);', last_review[count])
             time.sleep(0.8)
     except IndexError:
